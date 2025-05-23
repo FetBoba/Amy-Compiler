@@ -1,5 +1,6 @@
 # Amy Compiler
-This project implements a compiler for the Amy Language, a subset of Scala with limited functionality, with additional polymorphic types.
+This project implements a compiler for the [Amy Language](https://hkust-taco.github.io/mcc/files/amy-spec.pdf), a subset of Scala with limited functionality, with additional polymorphic types.
+
 ## The Compiler Construction Pipeline
 1. Lexer
 
