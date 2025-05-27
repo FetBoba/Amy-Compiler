@@ -1,0 +1,3 @@
+object NegationOfNegation {
+  !-x
+}

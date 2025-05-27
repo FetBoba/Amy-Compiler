@@ -1,0 +1,3 @@
+object MultipleUnary {
+  -!-!x
+}

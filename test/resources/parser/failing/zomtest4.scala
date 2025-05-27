@@ -1,0 +1,3 @@
+object MissingErrorArg {
+  error()
+}
