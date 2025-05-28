@@ -89,11 +89,11 @@ trait TreeModule { self =>
   case class ModuleDef(name: Name, defs: List[ClassOrFunDef], optExpr: Option[Expr]) extends Definition
   sealed trait ClassOrFunDef extends Definition
   // Added: type parameters for definitions
-  case class FunDef(name: Name, typeParams: List[Name], params: List[ParamDef], retType: TypeTree, body: Expr) extends ClassOrFunDef {
+  case class FunDef(name: Name, typeParams: List[TypeTree], params: List[ParamDef], retType: TypeTree, body: Expr) extends ClassOrFunDef {
     def paramNames = params.map(_.name)
   }
-  case class AbstractClassDef(name: Name, typeParams: List[Name]) extends ClassOrFunDef
-  case class CaseClassDef(name: Name, typeParams: List[Name], fields: List[TypeTree], parent: Name) extends ClassOrFunDef
+  case class AbstractClassDef(name: Name, typeParams: List[TypeTree]) extends ClassOrFunDef
+  case class CaseClassDef(name: Name, typeParams: List[TypeTree], fields: List[TypeTree], parent: Name) extends ClassOrFunDef
   case class ParamDef(name: Name, tt: TypeTree) extends Definition
 
   // Types

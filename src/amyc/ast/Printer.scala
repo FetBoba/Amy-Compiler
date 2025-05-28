@@ -14,16 +14,16 @@ trait Printer {
 
   protected implicit def stringToDoc(s: String): Raw = Raw(s)
 
-  // New: helper method to print type parameters
-  protected def printTypeParams(typeParams: List[treeModule.Name]): Document =
-    if (typeParams.nonEmpty)
-      "[" <:> Lined(typeParams.map(printName(_)(false)), ", ") <:> "]"
-    else
-      Raw("")
-
   def apply(t: Tree)(implicit printUniqueIDs: Boolean = false): String = {
 
     def binOp(e1: Expr, op: String, e2: Expr) = "(" <:> rec(e1) <:> " " + op + " " <:> rec(e2) <:> ")"
+
+    // New: helper method to print type parameters
+    def printTypeParams(typeParams: List[treeModule.TypeTree]): Document =
+      if (typeParams.nonEmpty)
+        "[" <:> Lined(typeParams.map(rec(_)), ", ") <:> "]"
+      else
+        Raw("")
 
     def rec(t: Tree, parens: Boolean = true): Document = t match {
       /* Definitions */

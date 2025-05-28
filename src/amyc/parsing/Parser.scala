@@ -78,7 +78,7 @@ object Parser extends Pipeline[Iterator[Token], Program]
     case id ~ _ ~ tt => ParamDef(id, tt)
   }
 
-  lazy val typeParameters: Syntax[List[Name]] = (delimiter("[") ~ repsep(identifier, ",") ~ delimiter("]")).map {
+  lazy val typeParameters: Syntax[List[TypeTree]] = (delimiter("[") ~ repsep(typeTree, ",") ~ delimiter("]")).map {
     case _ ~ params ~ _ => params.toList
   }
 
